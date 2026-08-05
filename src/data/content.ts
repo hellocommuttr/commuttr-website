@@ -245,7 +245,7 @@ export const ENDPOINTS = {
 } as const
 
 export const CONTACT = {
-  email: "hellocommuttr@gmail.com",
+  email: "hello@commuttr.co.za",
   hq: "South Africa",
   /** Google Apps Script Web App endpoint backing the contact form. */
   formEndpoint: ENDPOINTS.contact,
