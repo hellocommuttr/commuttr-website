@@ -8,9 +8,26 @@ import {
 } from "@/components/ui/accordion"
 import { CONTACT, FAQS } from "@/data/content"
 
+const FAQ_JSON_LD = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: FAQS.map((f) => ({
+    "@type": "Question",
+    name: f.q,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: f.a,
+    },
+  })),
+}
+
 export function Faq() {
   return (
     <section id="faq" className="relative py-16 sm:py-20 md:py-28">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
+      />
       <Container>
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>

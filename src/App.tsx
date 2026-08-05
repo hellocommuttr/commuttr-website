@@ -16,6 +16,28 @@ import { Waitlist } from "@/components/sections/Waitlist"
 import { PartnerPage } from "@/components/pages/PartnerPage"
 import { PrivacyPage } from "@/components/pages/PrivacyPage"
 import { Footer } from "@/components/sections/Footer"
+import { setPageMeta } from "@/lib/seo"
+
+const HOME_META = {
+  title: "Commuttr — Intelligent Journey Planning for South Africa",
+  description:
+    "Commuttr helps South African commuters discover routes, compare transport options, estimate fares, and navigate public transport with confidence.",
+  path: "/",
+}
+
+const PARTNER_META = {
+  title: "Partner With Us — Commuttr",
+  description:
+    "Partner with Commuttr to help build South Africa's intelligent journey planning platform for commuters, transport operators, and institutions.",
+  path: "/partner",
+}
+
+const PRIVACY_META = {
+  title: "Privacy Policy — Commuttr",
+  description:
+    "Read how Commuttr collects, uses, and protects the personal information of website visitors and commuters, in line with South Africa's POPIA.",
+  path: "/privacy",
+}
 
 export default function App() {
   const [path, setPath] = React.useState(() => window.location.pathname)
@@ -28,6 +50,19 @@ export default function App() {
     return () => window.removeEventListener("popstate", onLocationChange)
   }, [])
 
+  const isPartnerPage =
+    path === "/partner" ||
+    path === "/contact" ||
+    path === "/partner-with-us"
+
+  const isPrivacyPage =
+    path === "/privacy" ||
+    path === "/privacy-policy"
+
+  React.useEffect(() => {
+    setPageMeta(isPartnerPage ? PARTNER_META : isPrivacyPage ? PRIVACY_META : HOME_META)
+  }, [isPartnerPage, isPrivacyPage])
+
   React.useEffect(() => {
     const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
     if (typeof gtag !== "function") return
@@ -37,15 +72,6 @@ export default function App() {
       page_title: document.title,
     })
   }, [path])
-
-  const isPartnerPage =
-    path === "/partner" ||
-    path === "/contact" ||
-    path === "/partner-with-us"
-
-  const isPrivacyPage =
-    path === "/privacy" ||
-    path === "/privacy-policy"
 
   return (
     <div className="relative min-h-screen bg-ink">
