@@ -28,6 +28,16 @@ export default function App() {
     return () => window.removeEventListener("popstate", onLocationChange)
   }, [])
 
+  React.useEffect(() => {
+    const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag
+    if (typeof gtag !== "function") return
+    gtag("event", "page_view", {
+      page_path: path,
+      page_location: window.location.href,
+      page_title: document.title,
+    })
+  }, [path])
+
   const isPartnerPage =
     path === "/partner" ||
     path === "/contact" ||
