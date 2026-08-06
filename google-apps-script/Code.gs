@@ -4,7 +4,7 @@
  * 1. Accepts POST requests containing JSON form data:
  *    { "name": "...", "email": "...", "organisation": "...", "message": "..." }
  * 2. Appends entry to active Google Sheet
- * 3. Sends a styled HTML email notification to hellocommuttr@gmail.com
+ * 3. Sends a styled HTML email notification to hello@commuttr.co.za
  */
 
 function doPost(e) {
@@ -48,7 +48,7 @@ function doPost(e) {
     Logger.log("--> Row successfully written to Google Sheet.");
 
     // 2. Send Email Notification (wrapped in try-catch so email errors don't break response)
-    Logger.log("--> Attempting to send email notification to hellocommuttr@gmail.com...");
+    Logger.log("--> Attempting to send email notification to hello@commuttr.co.za...");
     try {
       sendEmailNotification({
         name: name,
@@ -57,7 +57,7 @@ function doPost(e) {
         message: message,
         timestamp: formattedDate
       });
-      Logger.log("--> Email notification successfully sent to hellocommuttr@gmail.com.");
+      Logger.log("--> Email notification successfully sent to hello@commuttr.co.za");
     } catch (mailError) {
       Logger.log("CRITICAL MAIL ERROR: Failed to send email notification: " + mailError.toString());
       Logger.log("Stack trace: " + (mailError.stack || "N/A"));
@@ -78,7 +78,7 @@ function doPost(e) {
  * Sends a styled HTML email notification for new contact submissions.
  */
 function sendEmailNotification(data) {
-  var recipient = "hellocommuttr@gmail.com";
+  var recipient = "hello@commuttr.co.za";
   var subject = "🚨 New Contact Enquiry - Commuttr";
 
   var htmlBody = `
@@ -164,12 +164,12 @@ function testEmail() {
   try {
     sendEmailNotification({
       name: "Test User",
-      email: "hellocommuttr@gmail.com",
+      email: "hello@commuttr.co.za",
       organisation: "Commuttr Test",
       message: "This is a successful test of the Commuttr Google Apps Script email notification system.",
       timestamp: Utilities.formatDate(new Date(), Session.getScriptTimeZone(), "dd/MM/yyyy HH:mm:ss")
     });
-    Logger.log("testEmail() completed successfully! Check hellocommuttr@gmail.com inbox.");
+    Logger.log("testEmail() completed successfully! Check hello@commuttr.co.za inbox.");
   } catch (err) {
     Logger.log("ERROR in testEmail(): " + err.toString());
     throw err;
