@@ -6,7 +6,7 @@
  * 1. Accepts POST requests containing JSON form data:
  *    { "name": "...", "email": "...", "city": "...", "organisation": "...", "transportMode": "..." }
  * 2. Appends entry to active Google Sheet ("Waitlist")
- * 3. Sends notification email to hellocommuttr@gmail.com
+ * 3. Sends notification email to @gmail.com
  * 4. Sends confirmation welcome email to the user
  */
 
@@ -87,7 +87,7 @@ function doPost(e) {
 }
 
 function sendTeamWaitlistNotification(data) {
-  var recipient = "hellocommuttr@gmail.com";
+  var recipient = "hello@commuttr.co.za";
   var subject = "🎉 New Commuttr Waitlist Signup";
 
   var htmlBody = `
