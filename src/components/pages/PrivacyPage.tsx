@@ -42,7 +42,7 @@ export function PrivacyPage() {
             Protecting your personal information with clarity, transparency, and care.
           </p>
           <p className="mt-3 text-xs font-medium text-mist">
-            Last Updated: August 5, 2026
+            Last Updated: 30 September 2026
           </p>
         </div>
 
@@ -54,7 +54,7 @@ export function PrivacyPage() {
               1. Introduction
             </h2>
             <p className="mt-3">
-              Commuttr (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting your personal information and respecting your privacy. This Privacy Policy outlines how we collect, use, store, and safeguard information provided by visitors and commuters using the Commuttr website.
+              Commuttr (&ldquo;we&rdquo;, &ldquo;us&rdquo;, or &ldquo;our&rdquo;) is committed to protecting your personal information and respecting your privacy. This Privacy Policy outlines how we collect, use, store, and safeguard information provided by visitors to the Commuttr website and by people using the Commuttr app, on Android and in a browser at app.commuttr.co.za.
             </p>
           </section>
 
@@ -113,14 +113,77 @@ export function PrivacyPage() {
               5. Sharing Information
             </h2>
             <p className="mt-3">
-              Commuttr does not sell, rent, trade, or monetize your personal information to any third parties. We will only share information where necessary to operate our website services (such as verified cloud platform providers) or where explicitly required by law, regulation, or legal process.
+              Commuttr does not sell, rent, trade, or monetize your personal information to any third parties. We will only share information where necessary to operate our services (such as verified cloud platform providers, and the providers named in sections 6 to 8) or where explicitly required by law, regulation, or legal process.
+            </p>
+            <p className="mt-3">
+              We do publish and sell <span className="text-white">aggregate counts and patterns</span> drawn from journey searches in the app &mdash; which trips, places and routes are searched, at what times, and where people look for a service that does not exist &mdash; to transport operators, the City of Cape Town and researchers, so that planning reflects what commuters actually look for. What is sold is always counts, never you: it carries no name, number, email, account or IP address, and it is grouped before it leaves us so that no row describes one person or one phone.
+            </p>
+          </section>
+
+          {/* Section 5b: The app */}
+          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
+            <h2 className="font-display text-lg font-bold text-white">
+              6. The Commuttr App
+            </h2>
+            <p className="mt-3">
+              The app has no accounts and asks for no name, email or phone number. It processes only what it needs to answer a journey:
+            </p>
+            <ul className="mt-2 space-y-2 list-disc pl-5 text-mist">
+              <li>The stops or map points you plan between, and the travel date and time</li>
+              <li>The text you type to find a place by name</li>
+              <li>Server logs of the requests our API receives, including your IP address</li>
+              <li>An identifier the app creates on first launch, so that ten searches from one phone are not counted as ten people. It is a random value, not a device identifier, and it is not linked to you</li>
+            </ul>
+            <p className="mt-3">
+              Your location is used only when you tap &ldquo;Use my location&rdquo; or &ldquo;Nearby stops&rdquo;, and only with your permission. A point sent to plan a trip is stored only <span className="text-white">rounded to about 500 metres</span>, never exactly. Your profile details, planner, favourites, recent searches, settings and saved timetables stay on your device and are never uploaded.
+            </p>
+            <p className="mt-3">
+              All of this can be switched off in the app under <span className="text-white">Profile &rarr; Preferences &rarr; Privacy</span>, which also forgets the identifier. That switch governs everything described in sections 6 and 7.
+            </p>
+          </section>
+
+          {/* Section 5c: Analytics */}
+          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
+            <h2 className="font-display text-lg font-bold text-white">
+              7. Analytics
+            </h2>
+            <p className="mt-3">
+              To understand how the app is used &mdash; how many people open it, whether they return, which screens they use and where they give up &mdash; we use <span className="text-white">Google Analytics for Firebase</span>. This website uses <span className="text-white">Google Analytics</span> for the same reason.
+            </p>
+            <p className="mt-3">
+              It measures the app, not your journeys. Google is not sent where you are travelling, what you searched for, or your location. It creates an identifier for the installation, and processes this for us as our operator, on servers outside South Africa. We have turned off the setting that would allow this data to be used to target advertising.
+            </p>
+          </section>
+
+          {/* Section 5d: Advertising */}
+          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
+            <h2 className="font-display text-lg font-bold text-white">
+              8. Advertising
+            </h2>
+            <p className="mt-3">
+              Commuttr is free to use, and the Android app is supported by advertising supplied by <span className="text-white">Google AdMob</span>. To serve and measure those ads, Google receives your device&rsquo;s advertising identifier and technical information such as device type, operating system and approximate location derived from your IP address.
+            </p>
+            <p className="mt-3">
+              Ads are not targeted using your journeys. What you search for, where you travel and the places you look up are not shared with Google or with any advertiser.
+            </p>
+            <p className="mt-3">
+              You can reset or delete your advertising identifier, and limit ad personalisation, in your device settings &mdash; on Android under Settings &rarr; Google &rarr; Ads. How Google uses information from sites and apps that use its services is described at{" "}
+              <a
+                href="https://policies.google.com/technologies/partner-sites"
+                target="_blank"
+                rel="noreferrer"
+                className="text-signal underline-offset-4 hover:underline font-medium"
+              >
+                policies.google.com/technologies/partner-sites
+              </a>
+              .
             </p>
           </section>
 
           {/* Section 6: Marketing Communications */}
           <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
             <h2 className="font-display text-lg font-bold text-white">
-              6. Marketing &amp; Product Communications
+              9. Marketing &amp; Product Communications
             </h2>
             <p className="mt-3">
               By joining the Commuttr waitlist, you agree to receive product updates, beta invitations, launch announcements, and essential service communications. You retain full control over your preferences and may unsubscribe from future communications at any time by contacting us directly.
@@ -130,7 +193,7 @@ export function PrivacyPage() {
           {/* Section 7: Data Security */}
           <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
             <h2 className="font-display text-lg font-bold text-white">
-              7. Data Security
+              10. Data Security
             </h2>
             <p className="mt-3">
               We implement reasonable technical and organizational measures to safeguard personal information against unauthorized access, loss, alteration, or disclosure. However, please be aware that no method of transmission over the Internet or electronic storage system can be guaranteed to be 100% secure.
@@ -140,7 +203,7 @@ export function PrivacyPage() {
           {/* Section 8: Your Rights */}
           <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
             <h2 className="font-display text-lg font-bold text-white">
-              8. Your Data Rights
+              11. Your Data Rights
             </h2>
             <p className="mt-3">
               You have the right to request access to the personal information we hold about you, request corrections to inaccurate data, request deletion of your information, or withdraw consent for future communications.
@@ -159,7 +222,7 @@ export function PrivacyPage() {
           {/* Section 9: POPIA Compliance */}
           <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
             <h2 className="font-display text-lg font-bold text-white">
-              9. POPIA Compliance (South Africa)
+              12. POPIA Compliance (South Africa)
             </h2>
             <p className="mt-3">
               Commuttr aims to process all personal information in accordance with the Protection of Personal Information Act (POPIA) of South Africa. We collect only necessary information, handle data lawfully and transparently, and protect user privacy in line with South African data protection principles.
@@ -169,7 +232,7 @@ export function PrivacyPage() {
           {/* Section 10: Changes to this Policy */}
           <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
             <h2 className="font-display text-lg font-bold text-white">
-              10. Changes to This Policy
+              13. Changes to This Policy
             </h2>
             <p className="mt-3">
               We may update this Privacy Policy from time to time as Commuttr grows and introduces new features. Any updates will be published directly on this page with a revised &ldquo;Last Updated&rdquo; date at the top of the policy.
