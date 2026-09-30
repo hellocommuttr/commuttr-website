@@ -19,21 +19,21 @@ import { Footer } from "@/components/sections/Footer"
 import { setPageMeta } from "@/lib/seo"
 
 const HOME_META = {
-  title: "Commuttr — Intelligent Journey Planning for South Africa",
+  title: "Commuttr: Intelligent Journey Planning for South Africa",
   description:
     "Commuttr helps South African commuters discover routes, compare transport options, estimate fares, and navigate public transport with confidence.",
   path: "/",
 }
 
 const PARTNER_META = {
-  title: "Partner With Us — Commuttr",
+  title: "Partner With Us | Commuttr",
   description:
     "Partner with Commuttr to help build South Africa's intelligent journey planning platform for commuters, transport operators, and institutions.",
   path: "/partner",
 }
 
 const PRIVACY_META = {
-  title: "Privacy Policy — Commuttr",
+  title: "Privacy Policy | Commuttr",
   description:
     "Read how Commuttr collects, uses, and protects the personal information of website visitors and commuters, in line with South Africa's POPIA.",
   path: "/privacy",

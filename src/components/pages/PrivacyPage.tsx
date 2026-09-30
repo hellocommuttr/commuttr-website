@@ -116,7 +116,7 @@ export function PrivacyPage() {
               Commuttr does not sell, rent, trade, or monetize your personal information to any third parties. We will only share information where necessary to operate our services (such as verified cloud platform providers, and the providers named in sections 6 to 8) or where explicitly required by law, regulation, or legal process.
             </p>
             <p className="mt-3">
-              We do publish and sell <span className="text-white">aggregate counts and patterns</span> drawn from journey searches in the app &mdash; which trips, places and routes are searched, at what times, and where people look for a service that does not exist &mdash; to transport operators, the City of Cape Town and researchers, so that planning reflects what commuters actually look for. What is sold is always counts, never you: it carries no name, number, email, account or IP address, and it is grouped before it leaves us so that no row describes one person or one phone.
+              We do publish and sell <span className="text-white">aggregate counts and patterns</span> drawn from journey searches in the app: which trips, places and routes are searched, at what times, and where people look for a service that does not exist. These go to transport operators, the City of Cape Town and researchers, so that planning reflects what commuters actually look for. What is sold is always counts, never you: it carries no name, number, email, account or IP address, and it is grouped before it leaves us so that no row describes one person or one phone.
             </p>
           </section>
 
@@ -148,7 +148,7 @@ export function PrivacyPage() {
               7. Analytics
             </h2>
             <p className="mt-3">
-              To understand how the app is used &mdash; how many people open it, whether they return, which screens they use and where they give up &mdash; we use <span className="text-white">Google Analytics for Firebase</span>. This website uses <span className="text-white">Google Analytics</span> for the same reason.
+              To understand how the app is used, meaning how many people open it, whether they return, which screens they use and where they give up, we use <span className="text-white">Google Analytics for Firebase</span>. This website uses <span className="text-white">Google Analytics</span> for the same reason.
             </p>
             <p className="mt-3">
               It measures the app, not your journeys. Google is not sent where you are travelling, what you searched for, or your location. It creates an identifier for the installation, and processes this for us as our operator, on servers outside South Africa. We have turned off the setting that would allow this data to be used to target advertising.
@@ -167,7 +167,7 @@ export function PrivacyPage() {
               Ads are not targeted using your journeys. What you search for, where you travel and the places you look up are not shared with Google or with any advertiser.
             </p>
             <p className="mt-3">
-              You can reset or delete your advertising identifier, and limit ad personalisation, in your device settings &mdash; on Android under Settings &rarr; Google &rarr; Ads. How Google uses information from sites and apps that use its services is described at{" "}
+              You can reset or delete your advertising identifier, and limit ad personalisation, in your device settings, on Android under Settings &rarr; Google &rarr; Ads. How Google uses information from sites and apps that use its services is described at{" "}
               <a
                 href="https://policies.google.com/technologies/partner-sites"
                 target="_blank"
