@@ -193,7 +193,7 @@ export type Member = {
 export const TEAM: Member[] = [
   {
     name: "Leseli Morakile",
-    role: "Founder & CEO",
+    role: "Co-Founder & CEO",
     initials: "LM",
     bio: "Responsible for business strategy, product vision, partnerships, branding, and company leadership.",
     image:
@@ -226,8 +226,8 @@ export const FAQS = [
     a: "Commuttr is starting with intelligent journey planning, with a long-term vision of building a more connected digital mobility experience for South Africa.",
   },
   {
-    q: "How do I join the waitlist?",
-    a: "Click 'Join the Waitlist' today to be among the first commuters to test Commuttr's intelligent journey planner when we launch.",
+    q: "How can I try Commuttr?",
+    a: "Commuttr is available now. Use the web app at app.commuttr.co.za, join the iOS beta through Apple\u2019s TestFlight, or download the Android app on Google Play. iPhone users will need Apple\u2019s TestFlight app to install the beta.",
   },
 ] as const
 
@@ -237,15 +237,24 @@ export const SOCIALS = [
   { label: "Facebook", href: "https://www.facebook.com/profile.php?id=61591064297485" },
 ] as const
 
+export const APP_LINKS = {
+  web: "https://app.commuttr.co.za",
+  ios: "https://testflight.apple.com/join/DgWwZHmt",
+  android:
+    "https://play.google.com/store/apps/details?id=za.co.commuttr&pcampaignid=web_share",
+} as const
+
 export const ENDPOINTS = {
   contact:
+    (import.meta.env.VITE_CONTACT_ENDPOINT as string) ||
     "https://script.google.com/macros/s/AKfycbwnmCI2y-C4rqkGtKYSEvbjZ7C7N8aoKK6Wi_TIEACebHbZaRpLXSKalH9co8b4oIgguQ/exec",
   waitlist:
+    (import.meta.env.VITE_WAITLIST_ENDPOINT as string) ||
     "https://script.google.com/macros/s/AKfycbwpEn0ukizh-1zOAgNWnC__jvTJj0PoR0iGubUFQH1baqIiq8FQflFrn8MMAVvXM4w/exec",
 } as const
 
 export const CONTACT = {
-  email: "hello@commuttr.co.za",
+  email: "hellocommuttr@gmail.com",
   hq: "South Africa",
   /** Google Apps Script Web App endpoint backing the contact form. */
   formEndpoint: ENDPOINTS.contact,
