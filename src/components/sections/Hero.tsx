@@ -1,8 +1,9 @@
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, BadgeCheck } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { PhoneMockup } from "@/components/app/PhoneMockup"
 import { HomeScreen } from "@/components/app/screens"
+import { trackEvent } from "@/lib/analytics"
 
 export function Hero() {
   return (
@@ -16,8 +17,8 @@ export function Hero() {
         {/* Copy */}
         <div className="max-w-xl">
           <h1 className="display text-[2.05rem] font-bold leading-[1.05] text-white min-[360px]:text-[2.6rem] sm:text-5xl lg:text-6xl">
-            Journey planning built for{" "}
-            <span className="text-[#f63d06]">South African</span> commuters.
+            One connected experience for{" "}
+            <span className="text-[#f63d06]">every way you move.</span>
           </h1>
 
           <p className="mt-5 text-base leading-relaxed text-muted-foreground sm:mt-6 sm:text-lg">
@@ -29,13 +30,25 @@ export function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button size="lg" asChild>
-              <a href="#waitlist">
-                Join the Waitlist <ArrowRight className="size-4" />
+              <a
+                href="#waitlist"
+                onClick={() => trackEvent("try_commuttr_click", { location: "hero" })}
+              >
+                Try Commuttr <ArrowRight className="size-4" />
               </a>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="#how">See How It Works</a>
             </Button>
+          </div>
+
+          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-mist">
+            <span className="flex items-center gap-2">
+              <BadgeCheck className="size-4 text-[#f63d06]" /> Intelligent Journey Planning MVP
+            </span>
+            <span className="flex items-center gap-2">
+              <BadgeCheck className="size-4 text-[#f63d06]" /> Multi-Modal Transport Coverage
+            </span>
           </div>
         </div>
 
