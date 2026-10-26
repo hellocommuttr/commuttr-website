@@ -6,7 +6,7 @@
  * 1. Accepts POST requests containing JSON form data:
  *    { "name": "...", "email": "...", "city": "...", "organisation": "...", "transportMode": "..." }
  * 2. Appends entry to active Google Sheet ("Waitlist")
- * 3. Sends notification email to @gmail.com
+ * 3. Sends notification email to hello@commuttr.co.za
  * 4. Sends confirmation welcome email to the user
  */
 

@@ -43,4 +43,4 @@ src/
 
 ## Copy and Form
 
-Site copy is based on the Commuttr Corporate Profile 2026. The contact form links directly to `hellocommuttr@gmail.com` using mailto.
+Site copy is based on the Commuttr Corporate Profile 2026. The contact form links directly to `hello@commuttr.co.za` using mailto.
