@@ -1,5 +1,6 @@
-import { Apple, CheckCircle2, Clock, Globe, Smartphone } from "lucide-react"
+import { CheckCircle2, Clock, Globe } from "lucide-react"
 
+import { AppleIcon, GooglePlayIcon } from "@/components/brand/SocialIcons"
 import { Button } from "@/components/ui/button"
 import { Container } from "@/components/Container"
 import { APP_LINKS } from "@/data/content"
@@ -73,7 +74,7 @@ export function Waitlist() {
                       rel="noopener noreferrer"
                       onClick={() => trackEvent("app_ios_click", { location: "try" })}
                     >
-                      <Apple className="size-4" /> Join the iOS Beta
+                      <AppleIcon className="size-4" /> Join the iOS Beta
                     </a>
                   </Button>
                   <p className="px-1 text-xs leading-relaxed text-mist">
@@ -89,7 +90,7 @@ export function Waitlist() {
                       rel="noopener noreferrer"
                       onClick={() => trackEvent("app_android_click", { location: "try" })}
                     >
-                      <Smartphone className="size-4" /> Download on Google Play
+                      <GooglePlayIcon className="size-4" /> Download on Google Play
                     </a>
                   </Button>
                 </div>
