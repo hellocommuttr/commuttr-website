@@ -1,4 +1,4 @@
-import { ArrowRight, BadgeCheck } from "lucide-react"
+import { ArrowRight } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { PhoneMockup } from "@/components/app/PhoneMockup"
@@ -40,15 +40,6 @@ export function Hero() {
             <Button size="lg" variant="outline" asChild>
               <a href="#how">See How It Works</a>
             </Button>
-          </div>
-
-          <div className="mt-8 flex flex-wrap items-center gap-x-6 gap-y-3 text-sm text-mist">
-            <span className="flex items-center gap-2">
-              <BadgeCheck className="size-4 text-[#f63d06]" /> Intelligent Journey Planning MVP
-            </span>
-            <span className="flex items-center gap-2">
-              <BadgeCheck className="size-4 text-[#f63d06]" /> Multi-Modal Transport Coverage
-            </span>
           </div>
         </div>
 
