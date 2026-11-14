@@ -2,6 +2,7 @@ import * as React from "react"
 
 import { Nav } from "@/components/sections/Nav"
 import { Hero } from "@/components/sections/Hero"
+import { Supporters } from "@/components/sections/Supporters"
 import { Problem } from "@/components/sections/Problem"
 import { Products } from "@/components/sections/Products"
 import { AppShowcase } from "@/components/sections/AppShowcase"
@@ -84,6 +85,7 @@ export default function App() {
         ) : (
           <>
             <Hero />
+            <Supporters />
             <Problem />
             <Products />
             <AppShowcase />
