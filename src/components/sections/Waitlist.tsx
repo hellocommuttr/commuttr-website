@@ -8,18 +8,20 @@ import { trackEvent } from "@/lib/analytics"
 
 export function Waitlist() {
   return (
-    <section id="waitlist" className="relative py-16 sm:py-20 md:py-28">
+    <section id="waitlist" className="relative pb-6 pt-16 sm:pt-20 md:pb-10 md:pt-28">
       <Container>
-        <div className="overflow-hidden rounded-none border border-white/[0.08] bg-carbon">
-          <div className="grid lg:grid-cols-2">
+        <div className="module relative overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute inset-0 signal-glow" />
+          <div className="relative grid lg:grid-cols-2">
             {/* Pitch / Info */}
             <div className="relative p-8 md:p-12">
               <div className="relative">
-                <div className="flex items-center gap-3">
-                  <span className="font-mono text-sm font-medium text-signal">11</span>
-                  <span className="eyebrow text-mist">Available Now</span>
+                <div className="flex items-center gap-2">
+                  <span className="eyebrow text-signal">11</span>
+                  <span aria-hidden className="size-1 rounded-full bg-signal" />
+                  <span className="eyebrow text-signal">Available Now</span>
                 </div>
-                <h2 className="display mt-4 text-3xl font-bold text-white md:text-4xl">
+                <h2 className="display mt-4 text-3xl text-white md:text-[2.6rem]">
                   Try Commuttr today
                 </h2>
                 <div className="mt-5 space-y-4 max-w-md text-sm leading-relaxed text-muted-foreground">
@@ -32,14 +34,14 @@ export function Waitlist() {
                 </div>
 
                 <div className="mt-8 grid gap-3 sm:grid-cols-2">
-                  <div className="flex items-start gap-3 rounded-none border border-white/[0.06] bg-white/[0.02] p-3 text-xs">
+                  <div className="flex items-start gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4 text-xs">
                     <Clock className="mt-0.5 size-4 shrink-0 text-signal" />
                     <div>
                       <div className="font-semibold text-white">Live today</div>
                       <div className="text-mist">Plan journeys right now, no sign-up needed</div>
                     </div>
                   </div>
-                  <div className="flex items-start gap-3 rounded-none border border-white/[0.06] bg-white/[0.02] p-3 text-xs">
+                  <div className="flex items-start gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.03] p-4 text-xs">
                     <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-signal" />
                     <div>
                       <div className="font-semibold text-white">On every device</div>
@@ -51,8 +53,8 @@ export function Waitlist() {
             </div>
 
             {/* Platform access */}
-            <div className="border-t border-white/8 bg-ink/40 p-8 md:border-l md:border-t-0 md:p-12">
-              <div className="flex h-full flex-col justify-center gap-5">
+            <div className="px-6 pb-6 md:px-12 md:pb-12 lg:pt-12">
+              <div className="flex h-full flex-col justify-center gap-5 rounded-3xl border border-white/[0.06] bg-ink/60 p-6 md:p-8">
                 <div>
                   <Button size="lg" className="w-full" asChild>
                     <a

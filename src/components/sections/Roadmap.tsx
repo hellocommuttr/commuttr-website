@@ -34,7 +34,7 @@ export function Roadmap() {
                   <div className="flex w-10 shrink-0 flex-col items-center">
                     <span
                       className={cn(
-                        "flex size-10 shrink-0 items-center justify-center text-sm font-bold",
+                        "flex size-10 shrink-0 items-center justify-center rounded-full text-sm font-medium",
                         done || current
                           ? "bg-[#f63d06] text-white"
                           : "border border-[#f63d06]/35 bg-ink text-[#f63d06]/70"
@@ -56,29 +56,29 @@ export function Roadmap() {
                   <div className={cn("min-w-0 flex-1", !isLast && "pb-5")}>
                     <div
                       className={cn(
-                        "border p-6 transition-transform duration-300 hover:-translate-y-0.5",
+                        "rounded-3xl border p-6 transition-colors duration-300 sm:p-7",
                         current
-                          ? "border-[#f63d06] bg-[#f63d06] shadow-lg"
+                          ? "border-[#f63d06] bg-[#f63d06]"
                           : done
                             ? "border-[#f63d06]/50 bg-[#f63d06]/15"
-                            : "border-white/[0.10] bg-carbon"
+                            : "border-white/[0.06] bg-surface"
                       )}
                     >
                       <span
                         className={cn(
-                          "flex items-center gap-2 text-xs font-bold uppercase tracking-wider",
-                          current ? "text-white/80" : "text-mist"
+                          "eyebrow flex items-center gap-2",
+                          current ? "text-white/85" : "text-signal"
                         )}
                       >
                         {current && (
                           <span
                             aria-hidden
-                            className="size-1.5 animate-pulse bg-white motion-reduce:animate-none"
+                            className="size-1.5 animate-pulse rounded-full bg-white motion-reduce:animate-none"
                           />
                         )}
                         {p.tag}
                       </span>
-                      <h3 className="mt-3 font-display text-xl font-bold text-white">
+                      <h3 className="mt-3 font-display text-xl font-medium tracking-tight text-white">
                         {p.title}
                       </h3>
                       <p

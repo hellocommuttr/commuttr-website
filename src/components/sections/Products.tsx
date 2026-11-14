@@ -2,6 +2,7 @@ import * as AccordionPrimitive from "@radix-ui/react-accordion"
 import { Plus } from "lucide-react"
 
 import { Container } from "@/components/Container"
+import { Panel } from "@/components/Panel"
 import { SectionHeading } from "@/components/SectionHeading"
 import { Reveal } from "@/components/Reveal"
 import { PRODUCTS } from "@/data/content"
@@ -35,13 +36,9 @@ const EXPANDED_DETAILS: Record<string, { subtitle: string; text: string }> = {
 
 export function Products() {
   return (
-    <section id="product" className="relative py-16 sm:py-20 md:py-28">
-      {/* soft top divider glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent"
-      />
-      <Container>
+    <section id="product" className="relative">
+      <Panel>
+      <Container className="py-16 sm:py-20 md:py-24">
         <SectionHeading
           index="02"
           eyebrow="What We're Building Today"
@@ -54,7 +51,7 @@ export function Products() {
         <AccordionPrimitive.Root
           type="single"
           collapsible
-          className="mt-14 border-t border-white/10"
+          className="mt-12 space-y-3"
         >
           {PRODUCTS.map((p, index) => {
             const Icon = p.icon
@@ -64,17 +61,17 @@ export function Products() {
               <Reveal key={p.title} delay={Math.min(index, 3) * 70}>
                 <AccordionPrimitive.Item
                   value={`item-${index}`}
-                  className="border-b border-white/10 transition-colors data-[state=open]:bg-white/[0.02]"
+                  className="tile px-4 transition-colors hover:border-white/15 data-[state=open]:border-[#f63d06]/50 sm:px-6"
                 >
                   <AccordionPrimitive.Header asChild>
                     <h3>
                       <AccordionPrimitive.Trigger className="group flex w-full cursor-pointer select-none items-center gap-4 py-5 text-left outline-none sm:gap-5 sm:py-6">
-                        <span className="flex size-11 shrink-0 items-center justify-center border border-white/[0.08] bg-white/[0.04] text-[#f63d06] transition-colors group-hover:border-[#f63d06]/40 group-data-[state=open]:border-[#f63d06] group-data-[state=open]:bg-[#f63d06] group-data-[state=open]:text-white">
+                        <span className="flex size-11 shrink-0 items-center justify-center rounded-full bg-white/[0.06] text-[#f63d06] transition-colors group-data-[state=open]:bg-[#f63d06] group-data-[state=open]:text-white">
                           <Icon className="size-5" />
                         </span>
 
                         <span className="min-w-0 flex-1">
-                          <span className="block font-display text-base font-bold text-white transition-colors group-hover:text-signal sm:text-lg">
+                          <span className="block font-display text-base font-medium tracking-tight text-white transition-colors group-hover:text-signal sm:text-lg">
                             {p.title}
                           </span>
                           <span className="mt-1 block text-sm leading-relaxed text-muted-foreground">
@@ -82,7 +79,9 @@ export function Products() {
                           </span>
                         </span>
 
-                        <Plus className="size-5 shrink-0 text-mist transition-transform duration-200 group-hover:text-signal group-data-[state=open]:rotate-45" />
+                        <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-white/[0.06] text-mist transition-all duration-200 group-hover:text-white group-data-[state=open]:rotate-45 group-data-[state=open]:bg-[#f63d06] group-data-[state=open]:text-white">
+                          <Plus className="size-4" />
+                        </span>
                       </AccordionPrimitive.Trigger>
                     </h3>
                   </AccordionPrimitive.Header>
@@ -90,8 +89,8 @@ export function Products() {
                   <AccordionPrimitive.Content className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
                     {details && (
                       <div className="pb-6 sm:pl-16">
-                        <div className="border-l-2 border-[#f63d06] pl-4">
-                          <p className="font-display text-sm font-bold text-white">
+                        <div className="rounded-2xl bg-white/[0.03] p-4 sm:p-5">
+                          <p className="font-display text-sm font-medium text-white">
                             {details.subtitle}
                           </p>
                           <p className="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">
@@ -107,6 +106,7 @@ export function Products() {
           })}
         </AccordionPrimitive.Root>
       </Container>
+      </Panel>
     </section>
   )
 }

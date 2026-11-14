@@ -101,15 +101,16 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-16 sm:py-20 md:py-28">
       <Container>
-        <div className="overflow-hidden rounded-none border border-white/[0.08] bg-carbon">
-          <div className="grid lg:grid-cols-2">
+        <div className="module relative overflow-hidden">
+          <div aria-hidden className="pointer-events-none absolute inset-0 signal-glow" />
+          <div className="relative grid lg:grid-cols-2">
             {/* Pitch */}
             <div className="relative p-8 md:p-12">
               <div className="relative">
                 <div className="flex items-center gap-3">
-                  <span className="eyebrow text-mist">Partner with Us</span>
+                  <span className="eyebrow text-signal">Partner with Us</span>
                 </div>
-                <h2 className="display mt-4 text-3xl font-bold text-white md:text-4xl">
+                <h2 className="display mt-4 text-3xl text-white md:text-[2.6rem]">
                   Let&rsquo;s build the future of mobility together.
                 </h2>
                 <p className="mt-5 max-w-md leading-relaxed text-muted-foreground">
@@ -123,13 +124,13 @@ export function Contact() {
                     href={`mailto:${CONTACT.email}`}
                     className="flex items-center gap-3 text-sm text-white/90 transition-colors hover:text-signal"
                   >
-                    <span className="flex size-10 items-center justify-center rounded-none bg-white/[0.04] text-signal ring-1 ring-white/10">
+                    <span className="flex size-10 items-center justify-center rounded-full bg-white/[0.06] text-signal">
                       <Mail className="size-4" />
                     </span>
                     {CONTACT.email}
                   </a>
                   <div className="flex items-center gap-3 text-sm text-white/90">
-                    <span className="flex size-10 items-center justify-center rounded-none bg-white/[0.04] text-signal ring-1 ring-white/10">
+                    <span className="flex size-10 items-center justify-center rounded-full bg-white/[0.06] text-signal">
                       <MapPin className="size-4" />
                     </span>
                     {CONTACT.hq}
@@ -139,11 +140,11 @@ export function Contact() {
             </div>
 
             {/* Form */}
-            <div className="border-t border-white/8 bg-ink/40 p-8 md:border-l md:border-t-0 md:p-12">
+            <div className="px-4 pb-4 sm:px-6 sm:pb-6 md:px-8 md:pb-8 lg:pl-0 lg:pt-8">
               {status === "sent" ? (
                 <div className="flex h-full flex-col items-center justify-center py-8 text-center">
                     <CheckCircle2 className="size-8 text-signal" />
-                  <h3 className="mt-5 font-display text-xl font-semibold text-white">
+                  <h3 className="mt-5 font-display text-xl font-medium tracking-tight text-white">
                     Message sent
                   </h3>
                   <p className="mt-2 max-w-xs text-sm leading-relaxed text-muted-foreground">
@@ -159,7 +160,7 @@ export function Contact() {
                   </Button>
                 </div>
               ) : (
-                <form onSubmit={onSubmit} className="space-y-4">
+                <form onSubmit={onSubmit} className="space-y-4 rounded-3xl border border-white/[0.06] bg-ink/60 p-6 md:p-8">
                   <div className="grid gap-4 sm:grid-cols-2">
                     <div className="space-y-1.5">
                       <Label htmlFor="name">Name</Label>
@@ -220,7 +221,7 @@ export function Contact() {
                   {status === "error" && (
                     <p
                       role="alert"
-                      className="flex items-start gap-2 border border-destructive/40 bg-destructive/10 p-3 text-sm text-white"
+                      className="flex items-start gap-2 rounded-xl border border-destructive/40 bg-destructive/10 p-3 text-sm text-white"
                     >
                       <AlertCircle className="mt-0.5 size-4 shrink-0 text-destructive" />
                       {error}

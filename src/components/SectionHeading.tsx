@@ -3,8 +3,8 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 /**
- * The section header device — a small numbered eyebrow (mirroring the
- * corporate profile's 01–09 numbering) above a rounded-display title.
+ * The section header device — a small coloured eyebrow (keeping the
+ * corporate profile's 01–11 numbering) above a tight, medium-weight title.
  */
 export function SectionHeading({
   index,
@@ -31,16 +31,17 @@ export function SectionHeading({
     >
       <div
         className={cn(
-          "flex items-center gap-3",
+          "flex items-center gap-2",
           align === "center" && "justify-center"
         )}
       >
         {index && (
-          <span className="font-mono text-sm font-medium text-signal">{index}</span>
+          <span className="eyebrow text-signal">{index}</span>
         )}
-        <span className="eyebrow text-mist">{eyebrow}</span>
+        {index && <span aria-hidden className="size-1 rounded-full bg-signal" />}
+        <span className="eyebrow text-signal">{eyebrow}</span>
       </div>
-      <h2 className="display mt-4 text-3xl font-bold text-white sm:text-4xl md:text-[2.7rem]">
+      <h2 className="display mt-4 text-3xl text-white sm:text-4xl md:text-[2.6rem]">
         {title}
       </h2>
       {sub && (

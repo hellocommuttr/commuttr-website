@@ -11,7 +11,7 @@ export function Wordmark({
   return (
     <span
       className={cn(
-        "font-display text-xl font-bold lowercase tracking-tight text-white",
+        "font-brand text-xl font-bold lowercase tracking-tight text-white",
         className
       )}
     >

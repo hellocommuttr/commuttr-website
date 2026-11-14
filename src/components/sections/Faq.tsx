@@ -1,4 +1,5 @@
 import { Container } from "@/components/Container"
+import { Panel } from "@/components/Panel"
 import { SectionHeading } from "@/components/SectionHeading"
 import {
   Accordion,
@@ -23,12 +24,13 @@ const FAQ_JSON_LD = {
 
 export function Faq() {
   return (
-    <section id="faq" className="relative py-16 sm:py-20 md:py-28">
+    <section id="faq" className="relative">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_JSON_LD) }}
       />
-      <Container>
+      <Panel>
+      <Container className="py-16 sm:py-20 md:py-24">
         <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
           <div>
             <SectionHeading
@@ -64,6 +66,7 @@ export function Faq() {
           </Accordion>
         </div>
       </Container>
+      </Panel>
     </section>
   )
 }

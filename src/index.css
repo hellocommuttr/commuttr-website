@@ -8,9 +8,9 @@
 :root {
   /* Brand primitives */
   --ink: #0a0a0b;
-  --carbon: #101013;
-  --surface: #16171b;
-  --surface-2: #1c1d22;
+  --carbon: #0e0e10;
+  --surface: #141417;
+  --surface-2: #1a1a1e;
   --signal: #f63d06;
   --signal-glow: #f63d06;
   --mist: #9a9aa5;
@@ -66,9 +66,10 @@
   --color-signal-glow: var(--signal-glow);
   --color-mist: var(--mist);
 
-  --font-display: "Arimo", system-ui, -apple-system, sans-serif;
-  --font-sans: "Arimo", system-ui, -apple-system, sans-serif;
-  --font-mono: "Arimo", system-ui, -apple-system, sans-serif;
+  --font-display: "Lexend", system-ui, -apple-system, sans-serif;
+  --font-sans: "Lexend", system-ui, -apple-system, sans-serif;
+  --font-mono: "Lexend", system-ui, -apple-system, sans-serif;
+  --font-brand: "Arimo", system-ui, -apple-system, sans-serif;
 
   --radius-lg: var(--radius);
   --radius-md: calc(var(--radius) - 0.25rem);
@@ -86,6 +87,11 @@
     border-color: var(--border);
   }
 
+  /* Keep anchored sections clear of the floating pill nav */
+  section[id] {
+    scroll-margin-top: 5.5rem;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-text-size-adjust: 100%;
@@ -94,7 +100,8 @@
   body {
     background-color: var(--background);
     color: var(--foreground);
-    font-family: "Arimo", system-ui, -apple-system, sans-serif;
+    font-family: "Lexend", system-ui, -apple-system, sans-serif;
+    font-weight: 300;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
     overflow-x: hidden;
@@ -108,7 +115,6 @@
   :focus-visible {
     outline: 2px solid var(--signal);
     outline-offset: 2px;
-    border-radius: 0;
   }
 
   .no-scrollbar {
@@ -146,18 +152,43 @@
 }
 
 @layer utilities {
+  /* impact-style eyebrow: small, coloured, uppercase, modest tracking */
   .eyebrow {
     font-family: var(--font-mono);
     text-transform: uppercase;
-    letter-spacing: 0.28em;
-    font-size: 0.72rem;
+    letter-spacing: 0.06em;
+    font-size: 0.8rem;
     font-weight: 500;
+    line-height: 1rem;
   }
 
+  /* impact-style display type: medium weight, tight negative tracking */
   .display {
     font-family: var(--font-display);
-    letter-spacing: -0.02em;
-    line-height: 1.02;
+    font-weight: 500;
+    letter-spacing: -0.035em;
+    line-height: 1.08;
+  }
+
+  /* Rounded "module" panel that sits inset from the viewport edges */
+  .module {
+    border-radius: 1.75rem;
+    background-color: var(--carbon);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Card surface used inside modules */
+  .tile {
+    border-radius: 1.5rem;
+    background-color: var(--surface);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  /* Soft orange glow for hero panels */
+  .signal-glow {
+    background:
+      radial-gradient(60% 70% at 85% 30%, rgba(246, 61, 6, 0.28), transparent 70%),
+      radial-gradient(50% 60% at 0% 100%, rgba(246, 61, 6, 0.12), transparent 70%);
   }
 
   .balance {

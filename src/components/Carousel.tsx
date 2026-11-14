@@ -97,7 +97,7 @@ export function Carousel({
           >
             <span
               className={cn(
-                "block h-1.5 transition-all duration-300",
+                "block h-1.5 rounded-full transition-all duration-300",
                 active === i
                   ? "w-7 bg-[#f63d06]"
                   : "w-3 bg-white/25 group-hover:bg-white/40"

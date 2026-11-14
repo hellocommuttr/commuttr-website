@@ -69,7 +69,9 @@ export function Footer() {
     }
   }
   return (
-    <footer className="border-t border-white/[0.08] bg-ink">
+    <footer className="pb-3 pt-3 sm:pb-4">
+      <div className="px-3 sm:px-4">
+      <div className="module mx-auto max-w-[1440px]">
       <Container className="py-14">
         <div className="grid gap-10 md:grid-cols-[1.6fr_1fr_1fr_1.2fr]">
           <div className="max-w-xs">
@@ -79,7 +81,7 @@ export function Footer() {
               with confidence.
             </p>
 
-            <ul className="-ml-2 mt-5 flex items-center gap-1">
+            <ul className="mt-5 flex items-center gap-2">
               {SOCIALS.map((s) => {
                 const Icon = SOCIAL_ICONS[s.label]
                 return (
@@ -89,7 +91,7 @@ export function Footer() {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Commuttr on ${s.label}`}
-                      className="flex size-11 items-center justify-center text-white/70 transition-colors hover:text-signal"
+                      className="flex size-10 items-center justify-center rounded-full bg-white/[0.06] text-white/75 transition-colors hover:bg-[#f63d06] hover:text-white"
                     >
                       <Icon className="size-5" />
                     </a>
@@ -101,7 +103,7 @@ export function Footer() {
 
           {COLUMNS.map((col) => (
             <div key={col.heading}>
-              <p className="eyebrow text-mist">{col.heading}</p>
+              <p className="eyebrow text-signal">{col.heading}</p>
               <ul className="mt-2 space-y-0.5 lg:mt-4 lg:space-y-2.5">
                 {col.links.map((link) => (
                   <li key={link.href}>
@@ -119,7 +121,7 @@ export function Footer() {
           ))}
 
           <div>
-            <p className="eyebrow text-mist">Get in touch</p>
+            <p className="eyebrow text-signal">Get in touch</p>
             <ul className="mt-4 space-y-3">
               <li>
                 <a
@@ -145,6 +147,8 @@ export function Footer() {
           <p>Pre-seed · Validation &amp; MVP · Built in South Africa</p>
         </div>
       </Container>
+      </div>
+      </div>
     </footer>
   )
 }

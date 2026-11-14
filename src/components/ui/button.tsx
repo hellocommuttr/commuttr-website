@@ -5,24 +5,25 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-none font-semibold outline-none transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background [&_svg]:size-4 [&_svg]:shrink-0",
+  "inline-flex shrink-0 items-center justify-center gap-2 whitespace-nowrap rounded-full font-medium outline-none transition-all duration-200 disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background [&_svg]:size-4 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-[#f63d06] text-white font-semibold hover:bg-[#e03503] hover:-translate-y-0.5 active:translate-y-0 active:bg-[#d63200] shadow-sm",
+          "bg-[#f63d06] text-white hover:bg-[#e03503] active:bg-[#d63200] [&_svg]:transition-transform hover:[&_svg]:translate-x-0.5",
         secondary:
-          "border border-white/10 bg-secondary text-secondary-foreground hover:bg-white/[0.07]",
+          "bg-white text-ink hover:bg-white/90",
         outline:
-          "border border-white/15 bg-transparent text-foreground hover:border-white/30 hover:bg-white/[0.05]",
-        ghost: "text-foreground/80 hover:bg-white/[0.06] hover:text-foreground",
+          "border border-white/20 bg-transparent text-foreground hover:border-white hover:bg-white hover:text-ink",
+        ghost: "text-foreground/80 hover:text-foreground",
         link: "text-signal underline-offset-4 hover:underline",
       },
       size: {
-        sm: "h-9 px-4 text-[0.8rem]",
-        default: "h-11 px-6 text-sm",
-        lg: "h-12 px-8 text-[0.95rem]",
+        sm: "h-10 px-4 text-[0.85rem]",
+        default: "h-11 px-5 text-sm",
+        lg: "h-12 px-6 text-[0.95rem]",
         icon: "size-10",
+        pill: "h-9 px-4 text-[0.8rem]",
       },
     },
     defaultVariants: { variant: "default", size: "default" },

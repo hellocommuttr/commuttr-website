@@ -33,9 +33,9 @@ export function PrivacyPage() {
         <div className="max-w-3xl">
           <div className="flex items-center gap-3">
             <ShieldCheck className="size-5 text-signal" />
-            <span className="eyebrow text-mist">Legal & Privacy</span>
+            <span className="eyebrow text-signal">Legal & Privacy</span>
           </div>
-          <h1 className="display mt-4 text-3xl font-bold text-white sm:text-4xl md:text-5xl">
+          <h1 className="display mt-4 text-3xl text-white sm:text-4xl md:text-5xl">
             Privacy Policy
           </h1>
           <p className="mt-4 text-base leading-relaxed text-muted-foreground sm:text-lg">
@@ -49,8 +49,8 @@ export function PrivacyPage() {
         {/* Policy Content */}
         <div className="mt-12 max-w-4xl space-y-8 text-sm leading-relaxed text-muted-foreground">
           {/* Section 1: Introduction */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               1. Introduction
             </h2>
             <p className="mt-3">
@@ -59,8 +59,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 2: Information We Collect */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               2. Information We Collect
             </h2>
             <p className="mt-3">
@@ -80,8 +80,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 3: Why We Collect Your Information */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               3. Why We Collect Your Information
             </h2>
             <p className="mt-3">
@@ -98,8 +98,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 4: How We Store Information */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               4. How We Store Information
             </h2>
             <p className="mt-3">
@@ -108,8 +108,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 5: Sharing Information */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               5. Sharing Information
             </h2>
             <p className="mt-3">
@@ -121,8 +121,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 5b: The app */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               6. The Commuttr App
             </h2>
             <p className="mt-3">
@@ -143,8 +143,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 5c: Analytics */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               7. Analytics
             </h2>
             <p className="mt-3">
@@ -156,8 +156,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 5d: Advertising */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               8. Advertising
             </h2>
             <p className="mt-3">
@@ -181,8 +181,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 6: Marketing Communications */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               9. Marketing &amp; Product Communications
             </h2>
             <p className="mt-3">
@@ -191,8 +191,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 7: Data Security */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               10. Data Security
             </h2>
             <p className="mt-3">
@@ -201,8 +201,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 8: Your Rights */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               11. Your Data Rights
             </h2>
             <p className="mt-3">
@@ -220,8 +220,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 9: POPIA Compliance */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               12. POPIA Compliance (South Africa)
             </h2>
             <p className="mt-3">
@@ -230,8 +230,8 @@ export function PrivacyPage() {
           </section>
 
           {/* Section 10: Changes to this Policy */}
-          <section className="rounded-none border border-white/[0.08] bg-carbon p-6 md:p-8">
-            <h2 className="font-display text-lg font-bold text-white">
+          <section className="tile p-6 md:p-8">
+            <h2 className="font-display text-lg font-medium tracking-tight text-white">
               13. Changes to This Policy
             </h2>
             <p className="mt-3">

@@ -1,5 +1,5 @@
 import * as React from "react"
-import { Menu, X } from "lucide-react"
+import { ArrowRight, Menu, X } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -65,15 +65,19 @@ export function Nav() {
   }
 
   return (
-    <header
-      className={cn(
-        "fixed inset-x-0 top-0 z-50 transition-colors duration-300",
-        scrolled || open
-          ? "border-b border-white/[0.06] bg-ink/80 backdrop-blur-xl"
-          : "border-b border-transparent"
-      )}
-    >
-      <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between gap-4 px-5 sm:px-6 md:px-8">
+    <header className="fixed inset-x-0 top-0 z-50 px-3 pt-3 sm:px-4">
+      <div
+        className={cn(
+          "mx-auto max-w-[1440px] overflow-hidden border transition-[background-color,border-color,box-shadow,border-radius] duration-300",
+          open ? "rounded-[1.75rem]" : "rounded-[2rem]",
+          open
+            ? "border-white/10 bg-carbon shadow-[0_8px_30px_rgba(0,0,0,0.45)]"
+            : scrolled
+            ? "border-white/10 bg-carbon/85 shadow-[0_8px_30px_rgba(0,0,0,0.45)] backdrop-blur-xl"
+            : "border-white/[0.08] bg-carbon/60 backdrop-blur-md"
+        )}
+      >
+      <div className="flex h-14 w-full items-center justify-between gap-4 pl-5 pr-2 sm:h-16 sm:pl-6 sm:pr-3">
         <a
           href="/"
           onClick={navigateTo("/", "")}
@@ -84,7 +88,7 @@ export function Nav() {
         </a>
 
         {/* Desktop nav — only once there is room for every link on one line */}
-        <nav className="hidden items-center gap-6 lg:flex xl:gap-8">
+        <nav className="hidden items-center gap-1 lg:flex">
           {NAV_LINKS.map((link) => (
             <a
               key={link.href}
@@ -94,7 +98,7 @@ export function Nav() {
                   navigateTo("/", link.href)(e)
                 }
               }}
-              className="whitespace-nowrap text-sm text-mist transition-colors hover:text-white"
+              className="whitespace-nowrap rounded-full px-3 py-2 text-sm text-white/75 transition-colors hover:bg-white/[0.06] hover:text-white"
             >
               {link.label}
             </a>
@@ -123,7 +127,7 @@ export function Nav() {
               }}
               className="whitespace-nowrap"
             >
-              Partner with us
+              Partner with us <ArrowRight className="size-4" />
             </a>
           </Button>
         </div>
@@ -131,7 +135,7 @@ export function Nav() {
         {/* Mobile / tablet trigger */}
         <button
           type="button"
-          className="flex size-10 shrink-0 items-center justify-center rounded-none border border-white/10 text-white transition-colors hover:bg-white/[0.06] lg:hidden"
+          className="flex size-10 shrink-0 items-center justify-center rounded-full border border-white/10 text-white transition-colors hover:bg-white/[0.06] lg:hidden"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close menu" : "Open menu"}
           aria-expanded={open}
@@ -145,7 +149,7 @@ export function Nav() {
       <div
         id="mobile-nav"
         className={cn(
-          "overflow-hidden border-white/[0.06] bg-ink/95 backdrop-blur-xl transition-[max-height] duration-300 ease-out lg:hidden",
+          "overflow-hidden border-white/[0.06] transition-[max-height] duration-300 ease-out lg:hidden",
           open ? "max-h-[80vh] border-t" : "max-h-0"
         )}
       >
@@ -160,7 +164,7 @@ export function Nav() {
                   navigateTo("/", link.href)(e)
                 }
               }}
-              className="rounded-none px-3 py-3 text-base text-mist transition-colors hover:bg-white/[0.04] hover:text-white"
+              className="rounded-xl px-3 py-3 text-base text-white/75 transition-colors hover:bg-white/[0.05] hover:text-white"
             >
               {link.label}
             </a>
@@ -190,6 +194,7 @@ export function Nav() {
             </Button>
           </div>
         </nav>
+      </div>
       </div>
     </header>
   )
