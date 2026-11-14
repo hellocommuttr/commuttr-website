@@ -10,7 +10,6 @@ export function HowItWorks() {
       <Panel>
       <Container className="py-16 sm:py-20 md:py-24">
         <SectionHeading
-          index="04"
           eyebrow="How it works"
           title="Three simple steps to plan your trip."
           sub="Getting around shouldn't be guesswork. Commuttr gives you route clarity, travel times, and estimated costs before you leave."

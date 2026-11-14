@@ -12,7 +12,6 @@ export function Audiences() {
       <Panel>
       <Container className="py-16 sm:py-20 md:py-24">
         <SectionHeading
-          index="06"
           eyebrow="Value proposition"
           title="Built for everyone who moves the city."
           sub="Creating value for commuters, transport operators, and the institutions that support them."

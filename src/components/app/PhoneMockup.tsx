@@ -6,17 +6,19 @@ import {
   Compass,
   Home,
   List,
-  User,
+  SlidersHorizontal,
   Wifi,
 } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+import { clock, useNow } from "./useNow"
 
 /* iOS-style status bar */
 function StatusBar() {
+  const now = useNow()
   return (
     <div className="relative z-10 flex h-11 items-center justify-between px-6 pt-2 text-[11.5px] font-semibold text-white">
-      <span className="font-semibold tracking-tight">9:41</span>
+      <span className="font-semibold tracking-tight">{clock(now)}</span>
       <div className="flex items-center gap-1.5">
         <span className="flex items-end gap-0.5" aria-hidden>
           <span className="h-1.5 w-0.5 rounded-full bg-white/90" />
@@ -36,7 +38,7 @@ const TABS: { icon: LucideIcon; label: string }[] = [
   { icon: List, label: "Planner" },
   { icon: BusFront, label: "Live Journey" },
   { icon: Compass, label: "Explore" },
-  { icon: User, label: "Profile" },
+  { icon: SlidersHorizontal, label: "Preferences" },
 ]
 
 export function AppTabBar({ active }: { active: number }) {

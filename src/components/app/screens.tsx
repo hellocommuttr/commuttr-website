@@ -1,4 +1,6 @@
 import {
+  ArrowLeftRight,
+  ArrowRight,
   ArrowUpDown,
   Bell,
   BusFront,
@@ -18,65 +20,135 @@ import {
   SlidersHorizontal,
   Square,
   TrainFront,
-  User,
   X,
 } from "lucide-react"
 
+import type { LucideIcon } from "lucide-react"
+
 import { cn } from "@/lib/utils"
 import { AppTabBar } from "./PhoneMockup"
+import { addMinutes, duration, greeting, hhmm, shortDate, useNow } from "./useNow"
 
 const BRAND = "#f63d06"
 
 /* ---------------- 1. Home Screen: plan a journey ---------------- */
 
-const RECOMMENDED = [
+type Leg = { operator: string; line: string }
+
+type RouteOption = {
+  icon: LucideIcon
+  duration: number
+  legs: Leg[]
+  from: string
+  to: string
+  detail: string
+  fare: string
+  tickets?: string
+  /** minutes from now */
+  departsIn: number
+}
+
+const RECOMMENDED: RouteOption[] = [
   {
     icon: TrainFront,
-    duration: "16",
-    operator: "Metro",
-    line: "Northern Line",
+    duration: 16,
+    legs: [{ operator: "Metrorail", line: "Northern Line" }],
     from: "Bellville Station",
     to: "Cape Town Station",
-    stops: "Direct",
+    detail: "Direct · 400 m walk",
     fare: "R25",
-    departs: "Departs in 4 min",
+    departsIn: 4,
   },
   {
     icon: BusFront,
-    duration: "22",
-    operator: "Golden Arrow",
-    line: "Hout Bay via CBD",
+    duration: 22,
+    legs: [{ operator: "Golden Arrow", line: "Hout Bay via CBD" }],
     from: "Bellville Station",
     to: "Civic Centre",
-    stops: "1 stop",
+    detail: "6 stops · 600 m walk",
     fare: "R14",
-    departs: "Departs in 7 min",
-  },
-  {
-    icon: BusFront,
-    duration: "28",
-    operator: "MyCiTi Bus",
-    line: "T01",
-    from: "Bellville Station",
-    to: "Civic Centre",
-    stops: "2 stops",
-    fare: "R18",
-    departs: "Departs in 11 min",
+    departsIn: 7,
   },
 ]
 
+/* Mirrors the app's "Journeys with a change" list: two legs, one transfer. */
+const WITH_CHANGE: RouteOption = {
+  icon: ArrowLeftRight,
+  duration: 34,
+  legs: [
+    { operator: "Metrorail", line: "Northern Line" },
+    { operator: "MyCiTi", line: "T01" },
+  ],
+  from: "Bellville Station",
+  to: "Civic Centre",
+  detail: "1 change at Cape Town Station",
+  fare: "R31.50",
+  tickets: "2 tickets",
+  departsIn: 9,
+}
+
+/* Route card laid out like the app: duration | route | fare & departure,
+   each column split by a hairline so every card lines up. */
+function RouteCard({ route, now }: { route: RouteOption; now: Date }) {
+  const Icon = route.icon
+  return (
+    <div className="flex items-stretch rounded-xl border border-white/[0.07] bg-[#131418] py-2 pl-1.5 pr-1">
+      <div className="flex w-9 shrink-0 flex-col items-center justify-center gap-1 border-r border-white/[0.07] pr-1.5">
+        <p className="text-[12px] font-bold leading-none text-white">
+          {route.duration}
+          <span className="ml-0.5 text-[7.5px] font-medium text-mist">min</span>
+        </p>
+        <Icon className="size-3.5 text-mist" />
+      </div>
+
+      <div className="min-w-0 flex-1 px-2 leading-tight">
+        <div className="space-y-0.5">
+          {route.legs.map((leg, i) => (
+            <div key={leg.operator + leg.line} className="flex items-center gap-1">
+              <span className="shrink-0 rounded bg-[#f63d06] px-1.5 py-px text-[8.5px] font-bold text-white">
+                {leg.operator}
+              </span>
+              <span className="truncate rounded border border-white/15 px-1 py-px text-[8.5px] font-semibold text-white">
+                {leg.line}
+              </span>
+              {i < route.legs.length - 1 && (
+                <ArrowRight className="size-2.5 shrink-0 text-mist" />
+              )}
+            </div>
+          ))}
+        </div>
+        <p className="mt-1 truncate text-[9.5px] text-mist">
+          {route.from} <span className="text-white/70">→</span> {route.to}
+        </p>
+        <p className="mt-0.5 truncate text-[8.5px] text-mist/80">{route.detail}</p>
+      </div>
+
+      <div className="flex w-16 shrink-0 flex-col items-end justify-center gap-0.5 border-l border-white/[0.07] pl-1.5 text-right leading-tight">
+        <span className="rounded bg-white/[0.08] px-1.5 py-px text-[9.5px] font-bold text-white">
+          {route.fare}
+        </span>
+        {route.tickets && <span className="text-[7.5px] text-mist">{route.tickets}</span>}
+        <span className="mt-0.5 whitespace-nowrap text-[8px] font-semibold text-[#f63d06]">
+          Departs {hhmm(addMinutes(now, route.departsIn))}
+        </span>
+        <span className="text-[7.5px] text-mist">in {route.departsIn} min</span>
+      </div>
+
+      <div className="flex shrink-0 items-center pl-0.5">
+        <ChevronRight className="size-3 text-mist/60" />
+      </div>
+    </div>
+  )
+}
+
 export function HomeScreen() {
+  const now = useNow()
   return (
     <div className="flex flex-1 flex-col bg-[#0c0d10] text-white">
       <div className="flex flex-1 flex-col px-3.5 pt-4">
         {/* Greeting */}
         <header className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <span className="flex size-8 items-center justify-center rounded-full border border-white/20 text-mist">
-              <User className="size-4" />
-            </span>
-            <p className="text-[13px] font-bold text-white">Good morning, Leseli!</p>
-          </div>
+          <p className="text-[13px] font-bold text-white">{greeting(now)}</p>
           <span className="relative text-mist">
             <Bell className="size-4" />
             <span className="absolute -right-0.5 -top-0.5 size-1.5 rounded-full bg-[#f63d06]" />
@@ -133,44 +205,15 @@ export function HomeScreen() {
         {/* Recommended routes */}
         <p className="mt-2 text-[11.5px] font-bold text-white">Recommended routes</p>
         <div className="mt-1 space-y-1">
-          {RECOMMENDED.map((r) => {
-            const Icon = r.icon
-            return (
-              <div
-                key={r.operator + r.line}
-                className="flex items-center gap-2 rounded-xl border border-white/[0.07] bg-[#131418] p-2"
-              >
-                <div className="flex w-8 shrink-0 flex-col items-center gap-0.5">
-                  <p className="text-[11.5px] font-bold leading-none text-white">
-                    {r.duration}
-                    <span className="ml-0.5 text-[8px] font-medium text-mist">min</span>
-                  </p>
-                  <Icon className="size-3.5 text-[#f63d06]" />
-                </div>
-                <div className="min-w-0 flex-1 border-l border-white/[0.07] pl-2 leading-tight">
-                  <div className="flex items-center gap-1">
-                    <span className="shrink-0 rounded bg-[#f63d06] px-1.5 py-px text-[8.5px] font-bold text-white">
-                      {r.operator}
-                    </span>
-                    <span className="truncate rounded border border-white/15 px-1 py-px text-[8.5px] font-semibold text-white">
-                      {r.line}
-                    </span>
-                    <span className="ml-auto shrink-0 rounded bg-white/[0.08] px-1.5 py-px text-[9.5px] font-bold text-white">
-                      {r.fare}
-                    </span>
-                  </div>
-                  <p className="mt-1 truncate text-[9.5px] text-mist">
-                    {r.from} <span className="text-white/70">→</span> {r.to}
-                  </p>
-                  <div className="mt-0.5 flex items-center justify-between gap-2 text-[8.5px]">
-                    <span className="truncate text-mist/70">{r.stops}</span>
-                    <span className="shrink-0 font-semibold text-[#f63d06]">{r.departs}</span>
-                  </div>
-                </div>
-                <ChevronRight className="size-3 shrink-0 text-mist/60" />
-              </div>
-            )
-          })}
+          {RECOMMENDED.map((r) => (
+            <RouteCard key={r.legs[0].operator} route={r} now={now} />
+          ))}
+        </div>
+
+        {/* Journeys with a change */}
+        <p className="mt-2 text-[11.5px] font-bold text-white">Journeys with a change</p>
+        <div className="mt-1">
+          <RouteCard route={WITH_CHANGE} now={now} />
         </div>
 
         {/* Planner preview */}
@@ -185,7 +228,7 @@ export function HomeScreen() {
                 <p className="truncate text-[10.5px] font-bold text-white">Bellville Station</p>
               </div>
               <p className="ml-5 mt-0.5 text-[9px] text-mist">
-                Departs 09:15 · Platform A1
+                Departs {hhmm(addMinutes(now, 15))} · Platform A1
               </p>
             </div>
             <span className="shrink-0 text-[9px] font-semibold text-[#f63d06]">
@@ -199,7 +242,7 @@ export function HomeScreen() {
               </span>
               <p className="truncate text-[10.5px] font-bold text-white">Adderley St</p>
             </div>
-            <p className="ml-5 mt-0.5 text-[9px] text-mist">Arrives 09:31</p>
+            <p className="ml-5 mt-0.5 text-[9px] text-mist">Arrives {hhmm(addMinutes(now, 31))}</p>
           </div>
           <button className="mt-2 flex w-full items-center justify-center gap-1.5 rounded-lg bg-[#f63d06] py-1.5 text-[11px] font-bold text-white">
             Start journey <ChevronRight className="size-3" />
@@ -216,8 +259,8 @@ export function HomeScreen() {
 const PLANNED_JOURNEYS = [
   {
     index: 1,
-    window: "09:15 → 09:31",
-    duration: "16 min",
+    startsIn: 15,
+    minutes: 16,
     operator: "Golden Arrow",
     line: "2311",
     from: "Bellville Station",
@@ -227,8 +270,8 @@ const PLANNED_JOURNEYS = [
   },
   {
     index: 2,
-    window: "12:05 → 12:28",
-    duration: "23 min",
+    startsIn: 65,
+    minutes: 23,
     operator: "Golden Arrow",
     line: "T01",
     from: "Adderley St",
@@ -238,8 +281,8 @@ const PLANNED_JOURNEYS = [
   },
   {
     index: 3,
-    window: "17:10 → 17:34",
-    duration: "24 min",
+    startsIn: 130,
+    minutes: 24,
     operator: "Golden Arrow",
     line: "101A",
     from: "Civic Centre",
@@ -250,6 +293,18 @@ const PLANNED_JOURNEYS = [
 ]
 
 export function PlannerScreen() {
+  const realNow = useNow()
+  const totalMinutes = PLANNED_JOURNEYS.reduce((sum, j) => sum + j.minutes, 0)
+  // Journeys start shortly after the visitor's current time. Late at night that
+  // would spill past midnight under a "Today" label, so the day's plan moves to
+  // tomorrow morning instead.
+  const last = PLANNED_JOURNEYS[PLANNED_JOURNEYS.length - 1]
+  const spillsPastMidnight =
+    addMinutes(realNow, last.startsIn + last.minutes).getDate() !== realNow.getDate()
+  const now = spillsPastMidnight
+    ? new Date(realNow.getFullYear(), realNow.getMonth(), realNow.getDate() + 1, 6, 0)
+    : realNow
+  const dayLabel = spillsPastMidnight ? "Tomorrow" : "Today"
   return (
     <div className="flex flex-1 flex-col bg-[#0c0d10] text-white">
       <div className="flex flex-1 flex-col px-3.5 pt-4">
@@ -268,7 +323,7 @@ export function PlannerScreen() {
         <div className="mt-2 flex items-center justify-between rounded-xl border border-white/[0.07] bg-[#131418] px-2.5 py-1">
           <ChevronLeft className="size-3.5 text-mist" />
           <span className="flex items-center gap-1.5 text-[11px] font-semibold text-white">
-            <CalendarDays className="size-3.5 text-mist" /> Today, 24 May 2025
+            <CalendarDays className="size-3.5 text-mist" /> {dayLabel}, {shortDate(now)}
             <ChevronDown className="size-2.5 text-mist" />
           </span>
           <ChevronRight className="size-3.5 text-mist" />
@@ -278,7 +333,7 @@ export function PlannerScreen() {
         <div className="mt-1.5 grid grid-cols-3 divide-x divide-white/[0.07] rounded-xl border border-white/[0.07] bg-[#131418] py-1.5 text-center">
           {[
             { icon: Route, value: "3", label: "Journeys" },
-            { icon: Clock, value: "1h 24m", label: "Total travel time" },
+            { icon: Clock, value: duration(totalMinutes), label: "Total travel time" },
             { icon: BusFront, value: "Golden Arrow", label: "Transport mode" },
           ].map((s) => {
             const Icon = s.icon
@@ -314,11 +369,13 @@ export function PlannerScreen() {
                   <span className="flex size-4 items-center justify-center rounded-full border border-[#f63d06] text-[8.5px] font-bold text-[#f63d06]">
                     {j.index}
                   </span>
-                  <p className="text-[12px] font-bold text-white">{j.window}</p>
+                  <p className="text-[12px] font-bold text-white">
+                    {hhmm(addMinutes(now, j.startsIn))} → {hhmm(addMinutes(now, j.startsIn + j.minutes))}
+                  </p>
                 </div>
                 <div className="flex items-center gap-1">
                   <span className="rounded bg-white/[0.08] px-1.5 py-px text-[8.5px] font-semibold text-white">
-                    {j.duration}
+                    {duration(j.minutes)}
                   </span>
                   <MoreVertical className="size-3 text-mist" />
                 </div>
@@ -437,6 +494,7 @@ function TripMap() {
 }
 
 export function LiveJourneyScreen() {
+  const now = useNow()
   return (
     <div className="flex flex-1 flex-col bg-[#0c0d10] text-white">
       <div className="flex flex-1 flex-col px-3.5 pt-4">
@@ -537,10 +595,10 @@ export function LiveJourneyScreen() {
 
           <div className="relative mt-1.5 space-y-1.5">
             {[
-              { time: "09:15", name: "Bellville Station", meta: "Platform A1", state: "done" },
-              { time: "09:31", name: "Adderley St", meta: "Stop ID 0487", state: "current" },
+              { time: hhmm(addMinutes(now, -4)), name: "Bellville Station", meta: "Platform A1", state: "done" },
+              { time: hhmm(addMinutes(now, 12)), name: "Adderley St", meta: "Stop ID 0487", state: "current" },
               { time: "—", name: "2 more stops", meta: "", state: "upcoming" },
-              { time: "09:47", name: "Civic Centre", meta: "Stop ID 0293 · est.", state: "upcoming" },
+              { time: hhmm(addMinutes(now, 28)), name: "Civic Centre", meta: "Stop ID 0293 · est.", state: "upcoming" },
             ].map((row) => (
               <div key={row.name} className="flex items-start gap-1.5">
                 <span className="w-8 shrink-0 pt-px text-right text-[8.5px] font-semibold text-mist">

@@ -31,7 +31,6 @@ const COLUMNS = [
     links: [
       { label: "The problem", href: "/#problem" },
       { label: "Ecosystem", href: "/#ecosystem" },
-      { label: "Leadership", href: "/#team" },
       { label: "Partner with us", href: "/partner" },
       { label: "Privacy policy", href: "/privacy" },
       { label: "FAQ", href: "/#faq" },
@@ -143,8 +142,8 @@ export function Footer() {
         <Separator className="my-9" />
 
         <div className="flex flex-col items-center justify-between gap-3 text-xs text-mist sm:flex-row">
-          <p>© 2026 Commuttr. All rights reserved.</p>
-          <p>Pre-seed · Validation &amp; MVP · Built in South Africa</p>
+          <p>© {new Date().getFullYear()} Commuttr. All rights reserved.</p>
+          <p>Built in South Africa</p>
         </div>
       </Container>
       </div>

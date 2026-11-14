@@ -8,7 +8,6 @@ export function Problem() {
     <section id="problem" className="relative py-16 sm:py-20 md:py-28">
       <Container>
         <SectionHeading
-          index="01"
           eyebrow="The commuter problem"
           title="Public transport is fragmented, unpredictable, and disconnected."
           sub="Millions of South Africans rely on public transport every day, yet commuters struggle to find reliable routes, compare options, estimate fares, and make confident travel decisions."

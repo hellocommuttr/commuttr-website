@@ -40,7 +40,6 @@ export function Products() {
       <Panel>
       <Container className="py-16 sm:py-20 md:py-24">
         <SectionHeading
-          index="02"
           eyebrow="What We're Building Today"
           title="Intelligent journey planning for South Africa."
           sub="Our current focus is building an intuitive MVP that helps commuters discover routes, compare transport options, and estimate travel costs."

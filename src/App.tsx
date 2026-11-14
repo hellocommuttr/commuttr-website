@@ -11,7 +11,6 @@ import { Principles } from "@/components/sections/Principles"
 import { Audiences } from "@/components/sections/Audiences"
 import { Roadmap } from "@/components/sections/Roadmap"
 import { Ecosystem } from "@/components/sections/Ecosystem"
-import { Team } from "@/components/sections/Team"
 import { Faq } from "@/components/sections/Faq"
 import { Waitlist } from "@/components/sections/Waitlist"
 import { PartnerPage } from "@/components/pages/PartnerPage"
@@ -94,7 +93,6 @@ export default function App() {
             <Audiences />
             <Roadmap />
             <Ecosystem />
-            <Team />
             <Faq />
             <Waitlist />
           </>

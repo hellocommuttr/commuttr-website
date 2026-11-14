@@ -13,7 +13,6 @@ export function Ecosystem() {
       <Container className="py-16 sm:py-20 md:py-24">
         {/* Vision Header */}
         <SectionHeading
-          index="08"
           eyebrow="Building the Future of Connected Mobility"
           title="Every great journey begins with knowing the best way to travel."
           sub="Commuttr is starting with intelligent journey planning today. As we grow, we'll continue building solutions that make public transport simpler, smarter and more connected."

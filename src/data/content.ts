@@ -21,7 +21,6 @@ export const NAV_LINKS = [
   { label: "How it works", href: "#how" },
   { label: "Methodology", href: "#roadmap" },
   { label: "Audience", href: "#who" },
-  { label: "Team", href: "#team" },
 ] as const
 
 export const PROBLEMS: Feature[] = [
@@ -179,55 +178,38 @@ export const PARTNERS: Feature[] = [
   },
 ]
 
-export type Member = {
-  name: string
-  role: string
-  initials: string
-  bio: string
-  /** Cloudinary portrait. `f_auto,q_auto` serves WebP/AVIF at a sane weight
-   *  instead of the multi-MB source PNG; `w_640` caps it at 2x the rendered size. */
-  image: string
-  linkedin: string
-}
-
-export const TEAM: Member[] = [
-  {
-    name: "Leseli Morakile",
-    role: "Co-Founder & CEO",
-    initials: "LM",
-    bio: "Responsible for business strategy, product vision, partnerships, branding, and company leadership.",
-    image:
-      "https://res.cloudinary.com/kxv83rmw/image/upload/f_auto,q_auto,w_640/v1785748126/Leseli_Team_Image_bhtdra.png",
-    linkedin: "https://www.linkedin.com/in/leseli-morakile-b71551210/",
-  },
-  {
-    name: "Mukhethwa Ravele",
-    role: "Co-Founder & Backend Engineering Lead",
-    initials: "MR",
-    bio: "Responsible for backend architecture, platform infrastructure, APIs, security, scalability, and technical implementation.",
-    image:
-      "https://res.cloudinary.com/kxv83rmw/image/upload/v1785755420/Mukhethwa_Team_Image_Four_ta8hu2.png",
-    linkedin: "https://www.linkedin.com/in/mukhethwa-ravele/",
-  },
-]
-
-
 export const FAQS = [
   {
     q: "What is Commuttr building today?",
     a: "Commuttr is an intelligent journey planning platform built for South African commuters. We help people discover routes, compare transport options, estimate journey costs, and navigate public transport with confidence.",
   },
   {
+    q: "Where does Commuttr work?",
+    a: "Commuttr currently works in Cape Town, with Golden Arrow, MyCiTi and Metrorail services. We plan to expand to other South African cities. If you’re outside Cape Town, follow us on social media or email hello@commuttr.co.za and we’ll let you know when we launch in your city.",
+  },
+  {
     q: "Which transport options are supported?",
-    a: "Commuttr integrates route and schedule data across minibus taxis, bus networks (like MyCiTi and Golden Arrow), and Metrorail trains in one place.",
+    a: "Commuttr brings route and schedule data for Golden Arrow and MyCiTi buses and Metrorail trains together in one place. Minibus taxi routes aren\u2019t in the app yet; we\u2019re building towards them.",
   },
   {
-    q: "What is Commuttr's long-term vision?",
-    a: "Commuttr is starting with intelligent journey planning, with a long-term vision of building a more connected digital mobility experience for South Africa.",
+    q: "How does Commuttr collect its information?",
+    a: "Our schedules come from official sources: the timetables published by Golden Arrow, MyCiTi and Metrorail. On top of that, commuters report disruptions in the app, such as strikes, services not running or skipped stops, so everyone on that route sees what is happening.",
   },
   {
-    q: "How can I try Commuttr?",
-    a: "Commuttr is available now. Use the web app at app.commuttr.co.za, join the iOS beta through Apple\u2019s TestFlight, or download the Android app on Google Play. iPhone users will need Apple\u2019s TestFlight app to install the beta.",
+    q: "Is Commuttr information official?",
+    a: "Our schedules are official: they come straight from the operators\u2019 published timetables. They are scheduled times, not live vehicle tracking. Disruption reports come from fellow commuters and are shown as rider reports. Commuttr is independent and is not affiliated with or endorsed by Golden Arrow, MyCiTi or Metrorail.",
+  },
+  {
+    q: "Is Commuttr free to use?",
+    a: "Yes. Commuttr is free for commuters on the web app, on Android and in the iOS beta. For businesses, we sell access to the Commuttr API, so you can build our South African transit schedules, routes and disruption data into your own products. Email hello@commuttr.co.za to find out more.",
+  },
+  {
+    q: "How do I report a disruption?",
+    a: "Tap Report a disruption on the home screen, choose the service (Golden Arrow, MyCiTi, Metrorail or Taxi), say what happened and where. Other riders see it straight away. Taxi schedules aren\u2019t in Commuttr yet, but taxi riders can already report taxi issues, so we record taxi disruptions while we build towards full taxi support.",
+  },
+  {
+    q: "How do I get alerts for my routes?",
+    a: "Open Preferences, then Notifications, to turn on journey updates and disruption alerts. Save your routes and set your Home and Work under Favourites so the alerts match the trips you actually take.",
   },
 ] as const
 

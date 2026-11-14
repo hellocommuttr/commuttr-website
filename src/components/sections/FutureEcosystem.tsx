@@ -68,7 +68,6 @@ export function FutureEcosystem() {
     <section id="coming-soon" className="relative py-16 sm:py-20 md:py-28 bg-ink border-t border-white/[0.06]">
       <Container>
         <SectionHeading
-          index="05"
           eyebrow="Coming Soon"
           title="Journey Planning Today. Connected Mobility Tomorrow."
           sub="Journey planning is our first step. Our long-term roadmap expands into a connected digital mobility ecosystem."

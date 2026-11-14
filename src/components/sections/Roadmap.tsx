@@ -14,7 +14,6 @@ export function Roadmap() {
     <section id="roadmap" className="relative py-16 sm:py-20 md:py-28">
       <Container>
         <SectionHeading
-          index="07"
           eyebrow="Methodology & Validation"
           title="A deliberate path to scale."
           sub="We build products that solve real problems, validating assumptions and refining the MVP with purpose before scaling."

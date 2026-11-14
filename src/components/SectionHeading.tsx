@@ -3,18 +3,16 @@ import * as React from "react"
 import { cn } from "@/lib/utils"
 
 /**
- * The section header device — a small coloured eyebrow (keeping the
- * corporate profile's 01–11 numbering) above a tight, medium-weight title.
+ * The section header device — a small coloured eyebrow above a tight,
+ * medium-weight title.
  */
 export function SectionHeading({
-  index,
   eyebrow,
   title,
   sub,
   align = "left",
   className,
 }: {
-  index?: string
   eyebrow: string
   title: React.ReactNode
   sub?: React.ReactNode
@@ -29,18 +27,7 @@ export function SectionHeading({
         className
       )}
     >
-      <div
-        className={cn(
-          "flex items-center gap-2",
-          align === "center" && "justify-center"
-        )}
-      >
-        {index && (
-          <span className="eyebrow text-signal">{index}</span>
-        )}
-        {index && <span aria-hidden className="size-1 rounded-full bg-signal" />}
-        <span className="eyebrow text-signal">{eyebrow}</span>
-      </div>
+      <p className="eyebrow text-signal">{eyebrow}</p>
       <h2 className="display mt-4 text-3xl text-white sm:text-4xl md:text-[2.6rem]">
         {title}
       </h2>

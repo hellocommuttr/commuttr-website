@@ -16,11 +16,7 @@ export function Waitlist() {
             {/* Pitch / Info */}
             <div className="relative p-8 md:p-12">
               <div className="relative">
-                <div className="flex items-center gap-2">
-                  <span className="eyebrow text-signal">11</span>
-                  <span aria-hidden className="size-1 rounded-full bg-signal" />
-                  <span className="eyebrow text-signal">Available Now</span>
-                </div>
+                <p className="eyebrow text-signal">Available Now</p>
                 <h2 className="display mt-4 text-3xl text-white md:text-[2.6rem]">
                   Try Commuttr today
                 </h2>

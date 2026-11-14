@@ -32,7 +32,6 @@ export function Principles() {
     <section id="principles" className="relative py-16 sm:py-20 md:py-28">
       <Container>
         <SectionHeading
-          index="05"
           eyebrow="Our Principles"
           title="How we build Commuttr."
           sub="Great mobility products aren't built by adding more features. They're built by deeply understanding the people who use them. At Commuttr, every decision we make is guided by research, validation and a commitment to solving real commuter challenges."

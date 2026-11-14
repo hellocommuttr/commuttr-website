@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react"
+import { ArrowRight, MapPin } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { PhoneMockup } from "@/components/app/PhoneMockup"
@@ -19,6 +19,15 @@ export function Hero() {
         <div className="relative mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 px-5 pb-12 pt-14 sm:gap-14 sm:px-8 md:pb-16 md:pt-20 lg:grid-cols-[1.05fr_0.95fr]">
           {/* Copy */}
           <div className="max-w-xl">
+            <p className="mb-6 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] py-1.5 pl-2 pr-3.5 text-xs text-white/80 sm:text-sm">
+              <span className="flex size-5 items-center justify-center rounded-full bg-[#f63d06] text-white">
+                <MapPin className="size-3" />
+              </span>
+              <span>
+                <span className="font-medium text-white">Live in Cape Town</span>
+                <span className="text-white/60"> · more cities coming soon</span>
+              </span>
+            </p>
             <h1 className="display text-[2.15rem] leading-[1.05] text-white min-[360px]:text-[2.6rem] sm:text-5xl lg:text-[3.6rem]">
               One connected experience for{" "}
               <span className="text-[#f63d06]">every way you move.</span>
